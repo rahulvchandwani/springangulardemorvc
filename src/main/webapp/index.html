@@ -1,0 +1,30 @@
+<html data-ng-app="user">
+	<body data-ng-controller="userController as vm">
+		<div>
+			<input type="text" data-ng-model="user"></input>
+			<h2>Hello {{user}}!</h2>
+		</div>
+		
+		<div>
+			<input type="submit" value="Get Books Content" data-ng-click="vm.getBooks();"></input>
+			<input type="submit" value="Clear Books Content" data-ng-click="vm.bookData.books = [];"></input>
+			<h3 data-ng-if="vm.bookData" data-ng-repeat="book in vm.bookData.books">{{book.name}}</h3>
+		</div>
+		
+		<div>
+			<input type="submit" value="Get Greeting" data-ng-click="vm.getGreetingFromHeroku();"></input>
+			<input type="submit" value="Clear Greeting" data-ng-click="vm.greeting.content = '';"></input>
+			<h2>{{vm.greeting.content}}</h2>
+		</div>
+
+		<div>
+			<input type="submit" value="Get User" data-ng-click="vm.getUsers();"></input>
+			<input type="submit" value="Clear User" data-ng-click="vm.users = [];"></input>
+			<h2 data-ng-if="vm.users" data-ng-repeat="user in vm.users">{{user.firstName}} {{user.lastName}}</h2>
+		</div>
+		
+		<script src="angular/angular.min.js"></script>
+		<script src="app/scripts/services/user.service.js"></script>
+		<script src="app/scripts/controllers/user.controller.js"></script>
+	</body>
+</html>
